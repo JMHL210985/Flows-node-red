@@ -1,0 +1,192 @@
+[
+    {
+        "id": "1b3e6d27e5115677",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "961f01628d2cf8d2",
+        "type": "mqtt in",
+        "z": "1b3e6d27e5115677",
+        "name": "",
+        "topic": "codigoIoT/SIC/G5/temp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "bb96c78d9c0dc48d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "a56d87a228c32192"
+            ]
+        ]
+    },
+    {
+        "id": "a56d87a228c32192",
+        "type": "json",
+        "z": "1b3e6d27e5115677",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "aecc8c1df82645ff",
+                "3eea95710f8c9180"
+            ]
+        ]
+    },
+    {
+        "id": "42292a41094f7a56",
+        "type": "debug",
+        "z": "1b3e6d27e5115677",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "6d3e017ec41b1664",
+        "type": "ui_text",
+        "z": "1b3e6d27e5115677",
+        "group": "5221d29c15d672c8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ULTIMO ID",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 650,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "34c508a66753a35f",
+        "type": "ui_gauge",
+        "z": "1b3e6d27e5115677",
+        "name": "",
+        "group": "5221d29c15d672c8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "ULTIMA TEMPERATURA",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "+50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 690,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "aecc8c1df82645ff",
+        "type": "function",
+        "z": "1b3e6d27e5115677",
+        "name": "",
+        "func": "msg.payload = msg.payload.id;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "6d3e017ec41b1664"
+            ]
+        ]
+    },
+    {
+        "id": "3eea95710f8c9180",
+        "type": "function",
+        "z": "1b3e6d27e5115677",
+        "name": "",
+        "func": "msg.payload = msg.payload.temp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "34c508a66753a35f"
+            ]
+        ]
+    },
+    {
+        "id": "bb96c78d9c0dc48d",
+        "type": "mqtt-broker",
+        "name": "hivemq",
+        "broker": "35.157.158.119",
+        "port": "1883",
+        "clientid": "JuanManuelHdzLara-SIC-2109",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5221d29c15d672c8",
+        "type": "ui_group",
+        "name": "ULTIMO DATO",
+        "tab": "0aa2d6335c6ec69b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0aa2d6335c6ec69b",
+        "type": "ui_tab",
+        "name": "Flow3",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
