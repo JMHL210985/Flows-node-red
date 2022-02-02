@@ -41,7 +41,9 @@
         "wires": [
             [
                 "aecc8c1df82645ff",
-                "3eea95710f8c9180"
+                "3eea95710f8c9180",
+                "42292a41094f7a56",
+                "1368171a50f953d2"
             ]
         ]
     },
@@ -57,8 +59,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 80,
+        "x": 450,
+        "y": 360,
         "wires": []
     },
     {
@@ -140,6 +142,69 @@
         "wires": [
             [
                 "34c508a66753a35f"
+            ]
+        ]
+    },
+    {
+        "id": "bd8366a851fb9cd7",
+        "type": "ui_chart",
+        "z": "1b3e6d27e5115677",
+        "name": "",
+        "group": "5221d29c15d672c8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 630,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1368171a50f953d2",
+        "type": "function",
+        "z": "1b3e6d27e5115677",
+        "name": "",
+        "func": "msg.topic = msg.payload.id;\nmsg.payload = msg.payload.temp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 200,
+        "wires": [
+            [
+                "bd8366a851fb9cd7"
             ]
         ]
     },
